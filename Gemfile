@@ -6,6 +6,8 @@ ruby "~> 3.3.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 
+gem "flipper"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -65,6 +67,9 @@ group :development do
   # gem "spring"
 
   gem "hotwire-livereload", "~> 1.2"
+
+  #annotate models
+  gem "annotate"
 end
 
 group :test do
@@ -72,4 +77,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "rspec"
 end
+
+gem "sidekiq", "~> 7.3"
+
+gem "pagy", "~> 9.3"
