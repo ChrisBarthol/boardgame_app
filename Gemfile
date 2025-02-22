@@ -83,3 +83,7 @@ end
 gem "sidekiq", "~> 7.3"
 
 gem "pagy", "~> 9.3"
+
+gem "devise", "~> 4.9"
+
+gem "omniauth", "~> 2.1"
