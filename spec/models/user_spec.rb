@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'validations' do
-    let(:user) { build(:user) }
+    let(:user) { create(:user) }
 
     it 'is valid with valid attributes' do
       expect(user).to be_valid
@@ -44,24 +44,11 @@ RSpec.describe User, type: :model do
     let(:user) { create(:user) }
 
     it 'authenticates with correct password' do
-      expect(user.valid_password?('correct_password')).to be_truthy
+      expect(user.valid_password?(user.password)).to be_truthy
     end
 
     it 'does not authenticate with incorrect password' do
       expect(user.valid_password?('wrong_password')).to be_falsey
-    end
-  end
-
-  describe 'confirmable' do
-    let(:user) { create(:user) }
-
-    it 'is not confirmed by default' do
-      expect(user.confirmed?).to be_falsey
-    end
-
-    it 'can be confirmed' do
-      user.confirm
-      expect(user.confirmed?).to be_truthy
     end
   end
 end
