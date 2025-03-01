@@ -10,13 +10,13 @@ class BggApiService
     Nokogiri::XML(response)
   end
 
-  def fetch_plays(username)
+  def self.fetch_plays(username)
     url = URI("#{BASE_URL}/plays?username=#{username}")
     response = Net::HTTP.get(url)
     Nokogiri::XML(response)
   end
 
-  def parse_collection(xml)
+  def self.parse_collection(xml)
     games = []
     xml.xpath('//item').each do |item|
       games << {
@@ -29,7 +29,7 @@ class BggApiService
     games
   end
 
-  def parse_plays(xml)
+  def self.parse_plays(xml)
     plays = []
     xml.xpath('//play').each do |play|
       game_name = play.at_xpath('item')['name']

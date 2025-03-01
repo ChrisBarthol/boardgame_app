@@ -2,6 +2,9 @@ class FetchBggDataJob < ApplicationJob
  queue_as :default
 
  def perform(username)
+  user = User.find_by(bgg_username: username)
+  return unless user
+  
   collection_xml = BggApiService.fetch_collection(username)
   collection_data = BggApiService.parse_collection(collection_xml)
 
