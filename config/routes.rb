@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "hello#index"
+  root "games#index"
+
+  # API routes
+  namespace :api, defaults: { format: :json } do
+    resources :games, only: [:index]
+  end
 
   resources :games, only: :index
   
