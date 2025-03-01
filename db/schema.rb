@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_27_143413) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_01_214335) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.integer "bgg_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_27_143413) do
 
   create_table "plays", force: :cascade do |t|
     t.integer "game_id", null: false
-    t.date "data"
+    t.date "date"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
